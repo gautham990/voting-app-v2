@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-deployment
+  labels:
+    type: front-end
+spec:
+  template:
+    metadata:
+      name: nginx-pod
+      labels:
+        type: front-end
+    spec:
+      containers:
+      - name: nginx-container
+        image: nginx
+      tolerations:
+      - key: "region"
+        operator: "Equal"
+        value: "prod"
+        effect: "NoSchedule"
+  replicas: 2
+  selector:
+    matchLabels:
+      type: front-end
