@@ -23,8 +23,8 @@ spec:
                    operator: In
                    values:
                      - XL
-
-  replicas: 6
+                     - L
+  replicas: 3
   selector:
     matchLabels:
       type: front-end
