@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod
+  labels:
+    type: back-end
+    region: prod
+    env: database
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx
+      resources:
+        limits:
+          memory: 768Mi
+          cpu: 1
+        requests:
+          memory: 512Mi
+          cpu: 0.5
